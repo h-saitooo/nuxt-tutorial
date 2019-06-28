@@ -1,4 +1,4 @@
-<transition lang="pug">
+<template lang="pug">
   .article-list
     article.article-item(v-for="(post, id) in articles" :key="id")
       nuxt-link.article-anchor(:to="{ name: 'article-id', params: { id: id } }")
@@ -9,7 +9,7 @@
             li.tag.is-success(v-for="category in post.category") {{ category }}
         main.article-main
           p.article-contents {{ post.contents }}
-</transition>
+</template>
 
 <script>
 import { mapState } from 'vuex'

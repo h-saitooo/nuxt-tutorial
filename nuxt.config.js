@@ -1,5 +1,14 @@
 import pkg from './package'
 
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/nuxt-tutorial/'
+        }
+      }
+    : {}
+
 export default {
   mode: 'spa',
 
@@ -26,7 +35,6 @@ export default {
    */
   css: [
     { src: 'bulma', lang: 'sass' },
-    { src: 'minireset.css', lang: 'sass' },
     { src: '~/assets/scss/app.scss', lang: 'scss' }
   ],
 
@@ -42,6 +50,8 @@ export default {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma'
   ],
+
+  ...routerBase,
 
   /*
    ** Build configuration
